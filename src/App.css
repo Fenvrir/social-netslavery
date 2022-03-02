@@ -1,38 +1,55 @@
-.App {
-  text-align: center;
+.app-wrapper {
+	display: grid;
+	grid-template-areas:
+		"h h"
+		"n c";
+	grid-template-rows: 120px 1fr;
+	grid-template-columns: 2fr 10fr;
+	grid-gap: 5px;
+	max-width: 1200px;
+	margin: 0 auto;
+}
+.header {
+	grid-area: h;
+	background-color: rgba(0, 255, 255, 0.253);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+nav {
+	grid-area: n;
+	background-color: rgba(24, 80, 80, 0.253);
+}
+.content {
+	grid-area: c;
+	background-color: rgba(86, 255, 255, 0.253);
+}
+.content__header-img {
+	width: 100%;
+	margin-bottom: 10px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.content__user {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	margin-bottom: 10px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.content__user-description {
+	flex-basis: 70%;
 }
 
-.App-link {
-  color: #61dafb;
+li {
+	list-style-type: none;
+}
+.content__posts {
+	display: flex;
+	flex-direction: column;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.content__post-btn {
+	text-align: right;
+}
+.content__posts-list {
+	padding-bottom: 10px;
+	color: rgb(66, 44, 2);
 }
