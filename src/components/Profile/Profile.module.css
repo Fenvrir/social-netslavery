@@ -1,0 +1,45 @@
+.content__container{
+
+}
+.content__img {
+	width: 100%;
+	height: 300px;
+	margin-bottom: 10px;
+}
+
+.content__user {
+	display: flex;
+	margin-bottom: 10px;
+}
+
+.content__avatar {
+	margin-left: 10px;
+}
+
+.content__description {
+	margin-left: 20px;
+}
+
+li {
+	list-style-type: none;
+}
+
+.content__posts {
+	display: flex;
+	flex-direction: column;
+}
+
+.content__btn {
+	text-align: right;
+}
+.content__list {
+	padding-bottom: 10px;
+	
+}
+.item {
+	margin-bottom: 10px;
+}
+
+.item_gold {
+	color: rgb(231, 153, 6);
+}

@@ -1,0 +1,11 @@
+.item {
+	margin-bottom: 10px;
+}
+.item_gold {
+	color: rgb(231, 153, 6);
+}
+.content_feedback{
+	width: 150px;
+	display: flex;
+	justify-content: space-between;
+}

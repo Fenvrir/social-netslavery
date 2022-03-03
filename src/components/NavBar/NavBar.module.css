@@ -1,0 +1,19 @@
+nav {
+	grid-area: n;
+	background-color: rgba(24, 80, 80, 0.253);
+	padding: 20px;
+}
+.item   {
+	margin-bottom: 10px;
+	text-transform: uppercase;
+}
+
+a {
+	text-decoration: none;
+	color: black;
+	
+}
+.active_link{
+	color: gold;
+	
+}
