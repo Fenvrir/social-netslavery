@@ -1,7 +1,8 @@
 import MyPosts from './MyPosts/MyPosts'
 import s from './Profile.module.css'
 
-function Profile() {
+
+function Profile(props) {
 	return (
 		<div className={s.content__container}>
 			<div>
@@ -28,15 +29,10 @@ function Profile() {
 				</div>
 			</div>
 			<div className={s.content__posts}>
-				<div >
-					<div >
-						<textarea rows="4" cols="129" placeholder="text" />
-					</div>
-					<div className={s.content__btn}>
-						<button type="submit">Send</button>
-					</div>
-				</div>
-				<MyPosts />
+				<MyPosts
+					profilePage={props.profilePage}
+					addPost={props.addPost}
+					updateNewPostText={props.updateNewPostText} />
 			</div>
 		</div>
 	)

@@ -29,9 +29,6 @@ li {
 	flex-direction: column;
 }
 
-.content__btn {
-	text-align: right;
-}
 .content__list {
 	padding-bottom: 10px;
 	

@@ -1,0 +1,14 @@
+.friend{
+	display: flex;
+	flex-direction: column;
+
+}
+
+.friend__avatar img{
+	width: 100px;
+}
+
+.friend__name{
+text-align: center;
+margin: 7px;
+}

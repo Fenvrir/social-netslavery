@@ -8,36 +8,37 @@ import News from './components/News/News';
 import Music from "./components/Music/Music";
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import ProfileSettings from './components/ProfileSettings/ProfileSettings';
+import Friends from './components/Friends/Friends';
 
-const App = () => {
-
-	function isEven(n) {
-		if (n < 0) {
-			n = -(n);
-		}
-		if (n === 0) {
-			console.log(true);
-		} else if (n === 1) {
-			console.log(false);
-		} else {
-
-			return isEven(n - 2);
-		}
-	}
-	isEven(-10);
+const App = (props) => {
 
 	return (
 		<BrowserRouter>
 			<div className='app-wrapper' >
 				<Header />
-				<NavBar />
+				<NavBar state={props.state.navBarPage} />
 				<div className='app-wrapper__content'>
 					<Routes>
-						<Route path='profile' element={<Profile />} />
-						<Route path='dialogs' element={<Dialogs />} />
+						<Route
+							path='profile'
+							element={<Profile
+								addPost={props.addPost}
+								profilePage={props.state.profilePage}
+								updateNewPostText={props.updateNewPostText}
+							/>} />
+						<Route path='dialogs/*'
+							element={<Dialogs
+								dialogsPage={props.state.dialogsPage}
+								sendMessage={props.sendMessage}
+								updateNewMessageText={props.updateNewMessageText}
+							/>} />
 						<Route path='music' element={<Music />} />
 						<Route path='news' element={<News />} />
 						<Route path='settings' element={<ProfileSettings />} />
+						<Route path='friends' element={
+							<Friends
+								state={props.state.friendsPage}
+							/>} />
 					</Routes>
 				</div>
 			</div >

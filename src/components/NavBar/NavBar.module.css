@@ -1,19 +1,27 @@
 nav {
 	grid-area: n;
-	background-color: rgba(24, 80, 80, 0.253);
+	background-color: rgba(36, 68, 68, 0.384);
 	padding: 20px;
 }
 .item   {
 	margin-bottom: 10px;
 	text-transform: uppercase;
+	
 }
 
 a {
 	text-decoration: none;
 	color: black;
-	
+	font-size: 20px;
 }
 .active_link{
 	color: gold;
-	
+}
+
+.settings, .friends {
+	margin-top: 30px;
+}
+
+.settings a{
+	font-size: 30px;	
 }

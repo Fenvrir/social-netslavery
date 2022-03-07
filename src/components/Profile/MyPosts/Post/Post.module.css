@@ -1,11 +1,19 @@
 .item {
-	margin-bottom: 10px;
-}
-.item_gold {
-	color: rgb(231, 153, 6);
+	margin: 0 0 0 20px;
+
 }
 .content_feedback{
-	width: 150px;
+	width: 120px;
+	margin: 10px 0;
 	display: flex;
 	justify-content: space-between;
+}
+.avatar img{
+	width: 60px;
+	border-radius: 50%;
+}
+.content__user {
+	display:  flex;
+	flex-direction: row;
+	align-items: center;
 }
