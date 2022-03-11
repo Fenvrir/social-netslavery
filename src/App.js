@@ -30,7 +30,7 @@ const App = (props) => {
             <Route path="settings" element={<ProfileSettings />} />
             <Route
               path="friends"
-              element={<FriendsContainer store={props.store} />}
+              element={<FriendsContainer />}
             />
           </Routes>
         </div>

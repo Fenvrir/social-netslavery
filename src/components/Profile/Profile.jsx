@@ -2,6 +2,7 @@ import MyPostsContainer from "./MyPosts/MyPostsContainer";
 import s from "./Profile.module.css";
 
 function Profile(props) {
+  debugger;
   return (
     <div className={s.content__container}>
       <div>
@@ -21,6 +22,7 @@ function Profile(props) {
         </div>
         <div className={s.content__description}>
           <ul>
+          
             <li>Date of birth: 6 july</li>
             <li>City: Almaty</li>
             <li>Education: TSU'21</li>

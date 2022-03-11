@@ -1,14 +1,19 @@
-import React from "react";
 import { addFriendActionCreator } from "../../redux/friends-reducer.js";
 import Friends from "./Friends.jsx";
+import {connect} from 'react-redux';
 
-function FriendsContainer(props) {
-  let friendsPage = props.store.getState().friendsPage;
+let mapStateToProps = (state) => {
+  return {
+    friends: state.friendsPage.friends,
+  }
+};
 
-  const addFriend = () => {
-    props.store.dispatch(addFriendActionCreator());
-  };
-  return <Friends friends={friendsPage.friends} addFriend={addFriend} />;
-}
+let mapDispatchToProps = (dispatch) => {
+  return {
+    addFriend: () => dispatch(addFriendActionCreator()),
+  }
+};
+
+const FriendsContainer = connect(mapStateToProps, mapDispatchToProps)(Friends);
 
 export default FriendsContainer;

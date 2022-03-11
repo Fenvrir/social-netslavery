@@ -12,8 +12,10 @@ const friendsReducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD_FRIEND:
             let newFriend = { id: 2, name: 'Dmitri', avatar: "https://www.kindpng.com/picc/m/22-223941_transparent-avatar-png-male-avatar-icon-transparent-png.png" };
-            state.friends.push(newFriend);
-            return state;
+            let copyState = {...state};
+            copyState.friends = [...copyState.friends];
+            copyState.friends.push(newFriend);
+            return copyState;
         default: return state;
     }
 };

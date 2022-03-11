@@ -1,5 +1,4 @@
 import React from "react";
-import { addFriendActionCreator } from "../../redux/friends-reducer.js";
 import Friend from "./Friend/Friend";
 import s from "./Friends.module.css";
 
@@ -11,10 +10,16 @@ function Friends(props) {
   
   const onAddFriend = () => {
 	  props.addFriend();
-}
-  return <div className={s.friends}>{friendsElements}
-	<div><button onClick={onAddFriend} >Add friend</button></div>
-  </div>;
+  }
+  
+  return (
+    <div className={s.friends}>
+         {friendsElements}
+      <div>
+        <button onClick={onAddFriend}>Add friend</button>
+      </div>
+    </div>
+  );
 }
 
 export default Friends;

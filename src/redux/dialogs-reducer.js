@@ -17,7 +17,7 @@ let initialState = {
 
 const dialogsReducer = ( state = initialState, action) => {
   switch (action.type) {
-    case SEND_MESSAGE:
+    case SEND_MESSAGE: {
       if(state.newMessageText === '') return state;
       let newMessage = {
         id: 1,
@@ -25,12 +25,18 @@ const dialogsReducer = ( state = initialState, action) => {
         avatar:
           "https://www.kindpng.com/picc/m/22-223941_transparent-avatar-png-male-avatar-icon-transparent-png.png",
       };
-      state.messages.push(newMessage);
-      state.newMessageText = "";
-      return state;
-    case UPDATE_NEW_MESSAGE_TEXT:
-      state.newMessageText = action.text;
-      return state;
+      let stateCopy = {...state};
+      stateCopy.dialogs = [...state.dialogs];
+      stateCopy.messages = [...state.messages];
+      stateCopy.messages.push(newMessage);
+      stateCopy.newMessageText = "";
+      return stateCopy; 
+    }
+    case UPDATE_NEW_MESSAGE_TEXT: {
+      let stateCopy = {...state};  
+      stateCopy.newMessageText = action.text;
+      return stateCopy;
+    }
     default:
       return state;
   }
