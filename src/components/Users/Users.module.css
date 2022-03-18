@@ -1,0 +1,24 @@
+h2 {
+    margin: 20px 0 0 20px;
+}
+.button__show{
+    text-align: center;
+}
+.button__show button {
+    font-size: 30px;
+}
+
+.page__list{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.current__page{
+    font-weight: bold;
+}
+
+span{
+    font-size: 20px;
+    margin: 5px;
+    cursor: pointer;
+}

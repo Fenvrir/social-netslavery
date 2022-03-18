@@ -14,7 +14,7 @@ function MyPosts(props) {
   }
 
   const onAddPost = () => {
-    props.addNewPost();
+    props.addPost();
   }
 
   return (

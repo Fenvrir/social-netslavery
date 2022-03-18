@@ -11,13 +11,13 @@ const Dialogs = (props) => {
     <Message message={m.message} id={m.id} avatar={m.avatar} />
   ));
 
-  const sendNewMessage = () => {
-    props.onSendNewMessage();
+  const onSendNewMessage = () => {
+    props.sendMessage();
   };
 
   const onMessageChange = (ev) => {
     let newMessage = ev.target.value;
-    props.onMessageChange(newMessage);
+    props.updateNewMessageText(newMessage);
   };
 
   return (
@@ -36,7 +36,7 @@ const Dialogs = (props) => {
           />
         </div>
         <div className={s.dialogs__btn}>
-          <button onClick={sendNewMessage} type="submit">
+          <button onClick={onSendNewMessage} type="submit">
             Send
           </button>
         </div>

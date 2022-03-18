@@ -1,8 +1,11 @@
+import Preloader from "../Users/Preloader";
 import MyPostsContainer from "./MyPosts/MyPostsContainer";
 import s from "./Profile.module.css";
 
 function Profile(props) {
-  debugger;
+  if(!props.profile){
+    return <Preloader/>
+  }
   return (
     <div className={s.content__container}>
       <div>
@@ -17,15 +20,14 @@ function Profile(props) {
           <img
             width="100px"
             alt="Avatar"
-            src="https://www.kindpng.com/picc/m/22-223941_transparent-avatar-png-male-avatar-icon-transparent-png.png"
+            src={props.profile.photos.small}
           ></img>
         </div>
         <div className={s.content__description}>
           <ul>
-          
-            <li>Date of birth: 6 july</li>
-            <li>City: Almaty</li>
-            <li>Education: TSU'21</li>
+            <li>Name: {props.profile.fullName}</li>
+            <li>About: {props.profile.aboutMe}</li>
+            <li>Description: {props.profile.lookingForAJobDescription}</li>
           </ul>
         </div>
       </div>

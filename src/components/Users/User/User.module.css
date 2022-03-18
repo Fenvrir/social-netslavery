@@ -1,0 +1,46 @@
+.user__container {
+    display: flex;
+    flex-direction: row;
+    margin: 20px 50px;
+}
+.user__img{
+    width: 100px;
+   
+    align-self: center;
+    margin-top: 10px;
+}
+.user__img img{
+    width: 70px;
+    border-radius: 50%;
+}
+
+.follow__button button{
+    font-size: 20px;
+}
+.user__description {
+    width: 500px;
+    height: 100px;
+    border: 1px solid gray;
+    font-size: 20px;
+    align-self: center;
+    display: flex;
+    justify-content:space-around;
+    border-radius: 10px;
+    flex-wrap: wrap;
+}
+.item{
+    box-sizing: border-box;
+    margin-right: auto;
+    width: 200px;
+}
+.item__right{
+    text-align: right;
+    margin-right: 20px;
+}
+.item__right:last-child{
+    margin-top: -20px;
+}
+
+.item_quote{
+    font-size: 14px;
+}
