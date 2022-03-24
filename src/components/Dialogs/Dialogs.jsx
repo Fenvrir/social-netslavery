@@ -1,8 +1,10 @@
+import { Navigate } from "react-router-dom";
 import DialogItem from "./DialogItem/DialogItem";
 import s from "./Dialogs.module.css";
 import Message from "./Message/Message";
 
 const Dialogs = (props) => {
+
   const dialogsElements = props.dialogsPage.dialogs.map((d) => (
     <DialogItem id={d.id} name={d.name} active={d.active} avatar={d.avatar} />
   ));
@@ -10,7 +12,9 @@ const Dialogs = (props) => {
   const messageElements = props.dialogsPage.messages.map((m) => (
     <Message message={m.message} id={m.id} avatar={m.avatar} />
   ));
-
+  
+  console.log(props.isAuth)
+ 
   const onSendNewMessage = () => {
     props.sendMessage();
   };
@@ -19,6 +23,8 @@ const Dialogs = (props) => {
     let newMessage = ev.target.value;
     props.updateNewMessageText(newMessage);
   };
+
+
 
   return (
     <div>

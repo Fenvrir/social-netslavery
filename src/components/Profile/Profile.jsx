@@ -1,11 +1,15 @@
 import Preloader from "../Users/Preloader";
 import MyPostsContainer from "./MyPosts/MyPostsContainer";
+import ProfileStatus from "./ProfileStatus/ProfileStatus"
 import s from "./Profile.module.css";
 
 function Profile(props) {
+ 
+
   if(!props.profile){
     return <Preloader/>
   }
+
   return (
     <div className={s.content__container}>
       <div>
@@ -25,6 +29,7 @@ function Profile(props) {
         </div>
         <div className={s.content__description}>
           <ul>
+            <ProfileStatus {...props}/>
             <li>Name: {props.profile.fullName}</li>
             <li>About: {props.profile.aboutMe}</li>
             <li>Description: {props.profile.lookingForAJobDescription}</li>

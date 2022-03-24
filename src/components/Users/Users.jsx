@@ -17,7 +17,9 @@ const Users = (props) => {
         id={u.id}
         onFollowUser={props.onFollow}
         onUnfollowUser={props.onUnfollow}
-        // surn={u.surn}
+        onToggleFollow={props.onToggleFollow}
+        followingInProgress={props.followingInProgress}
+      // surn={u.surn}
       />
     );
   });
@@ -25,15 +27,16 @@ const Users = (props) => {
   return (
     <div>
       <h2>Users</h2>
-       {props.isFetching && <Preloader/>} 
+      {props.isFetching && <Preloader />}
       <div className={s.page__list}>
         {props.pages.map((p) => {
           return (
             <span
               className={props.currentPage === p && s.current__page}
-              onClick={() => {props.onPageChanged(p)}}>
+              onClick={() => { props.onPageChanged(p) }}>
               {p}
-            </span>);})}
+            </span>);
+        })}
       </div>
       {users}
       <div className={s.button__show}></div>

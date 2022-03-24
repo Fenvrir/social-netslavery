@@ -17,7 +17,7 @@ h2 {
     font-weight: bold;
 }
 
-span{
+.page__list span{
     font-size: 20px;
     margin: 5px;
     cursor: pointer;

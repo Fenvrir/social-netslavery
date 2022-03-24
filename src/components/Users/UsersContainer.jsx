@@ -1,75 +1,71 @@
 import React from 'react'
-import {connect} from 'react-redux';
-import { followUser, unfollowUser, setUsers, setCurrentPage, setTotalUsersCount, toggleIsFetching } from '../../redux/users-reducer';
-import * as axios from "axios";
+import { connect } from 'react-redux';
+import { followUser, unFollowUser, setCurrentPage, toggleIsFetching, getUsers } from '../../redux/users-reducer';
 import Users from "./Users";
 
+
 class UsersComponent extends React.Component {
-    componentDidMount() {
-      if (this.props.usersPage.status === 0) {
-        this.props.toggleIsFetching(true);
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`)
-          .then((response) => {
-            this.props.setUsers(response.data.items);
-            this.props.setTotalUsersCount(response.data.totalCount);
-            this.props.toggleIsFetching(false);
-          });
-      }
-    }
-  
-    onFollow = (id) => {
-      this.props.followUser(id);
-    };
-  
-    onUnfollow = (id) => {
-      this.props.unfollowUser(id);
-    };
-  
-    onPageChanged = (currentPage) => {
-      this.props.setCurrentPage(currentPage);
-      this.props.toggleIsFetching(true);
-      axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${currentPage}&count=${this.props.pageSize}`)
-          .then((response) => {
-            this.props.setUsers(response.data.items);
-            this.props.toggleIsFetching(false);
-          });
-          
-    }
-  
-    render() {
-      let pageCount = Math.ceil(this.props.totalUsersCount / this.props.pageSize);
-  
-      let pages = [];
-  
-      for (let i = 1; i <= pageCount; i++) {
-        pages.push(i);
-    }
-  
-      return <Users
-          usersPage={this.props.usersPage}
-          onFollow={this.onFollow}
-          onUnfollow={this.onUnfollow}
-          onPageChanged={this.onPageChanged}
-          currentPage={this.props.currentPage}
-          pages={pages}
-          isFetching={this.props.isFetching}
-           />
+  componentDidMount() {
+    if (this.props.usersPage.status === 0) {
+      this.props.getUsers(this.props.currentPage, this.props.pageSize);
     }
   }
-  
-let mapStateToProps = (state) => {
-    return {
-        usersPage: state.usersPage,
-        pageSize: state.usersPage.pageSize,
-        totalUsersCount: state.usersPage.totalUsersCount,
-        currentPage: state.usersPage.currentPage,
-        isFetching: state.usersPage.isFetching
-        
+
+  onFollow = (id) => {
+    this.props.followUser(id);
+  };
+
+  onUnfollow = (id) => {
+    this.props.unFollowUser(id);
+  };
+  onPageChanged = (currentPage) => {
+    this.props.setCurrentPage(currentPage);
+    this.props.getUsers(currentPage, this.props.pageSize)
+  }
+
+  onToggleFollow = (isFetching, id) => {
+    this.props.toggleFollowingProgress(isFetching, id);
+  }
+
+
+  render() {
+    let pageCount = Math.ceil(this.props.totalUsersCount / this.props.pageSize);
+
+    let pages = [];
+
+    for (let i = 1; i <= pageCount; i++) {
+      pages.push(i);
     }
+
+    return <Users
+      usersPage={this.props.usersPage}
+      onFollow={this.onFollow}
+      onUnfollow={this.onUnfollow}
+      onPageChanged={this.onPageChanged}
+      currentPage={this.props.currentPage}
+      pages={pages}
+      isFetching={this.props.isFetching}
+      followingInProgress={this.props.followingInProgress}
+      onToggleFollow={this.onToggleFollow}
+    />
+  }
 }
 
-const UsersContainer = connect(mapStateToProps, 
-  {followUser, unfollowUser, setUsers, setCurrentPage, setTotalUsersCount, toggleIsFetching
-})(UsersComponent);
+let mapStateToProps = (state) => {
+  return {
+    usersPage: state.usersPage,
+    pageSize: state.usersPage.pageSize,
+    totalUsersCount: state.usersPage.totalUsersCount,
+    currentPage: state.usersPage.currentPage,
+    isFetching: state.usersPage.isFetching,
+    followingInProgress: state.usersPage.followingInProgress,
+  }
+}
+
+const UsersContainer = connect(mapStateToProps,
+  {
+    followUser, unFollowUser, setCurrentPage,
+    toggleIsFetching, getUsers
+  })(UsersComponent);
 
 export default UsersContainer;
