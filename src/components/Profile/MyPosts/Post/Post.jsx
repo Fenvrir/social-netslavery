@@ -7,7 +7,9 @@ function Post(props) {
 				<div className={s.avatar}>
 					<img src={props.avatar} alt="Avatar" />
 				</div>
-				<div className={s.item}>{props.message}</div>
+				<div className={s.item}>
+					<p>{props.message}</p>
+				</div>
 			</div>
 			<div className={s.content_feedback}>
 				<span><button>Like</button></span>

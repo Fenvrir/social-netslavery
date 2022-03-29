@@ -15,7 +15,6 @@ export const usersAPI = {
     }
 }
 
-
 export const subscribeAPI = {
     followUser: async (userId) => {
         const response = await instance.post(`follow/${userId}`);
@@ -28,15 +27,29 @@ export const subscribeAPI = {
 }
 
 export const profileAPI = {
+   
     getUserProfile (userId) {
         return instance.get(`profile/`+ userId)
             .then(response => response.data)
+    },
+    getUserStatus (userId) {
+        return instance.get(`profile/status/` + userId)
+            .then(response => response);
+    },
+    updateStatus (status) {
+        return instance.put(`profile/status`, {status});
     }
 }
 
-export const headerAPI = {
+export const authAPI = {
     setUserAuthData () {
         return instance.get(`auth/me`)
             .then(response => response.data)
+    },
+    loginUser () {
+        return instance.post('/auth/login')
+            .then(response => response)
     }
 }
+
+

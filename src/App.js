@@ -15,7 +15,6 @@ import MusicContainer from "./components/Music/MusicContainer";
 
 const App = (props) => {
 
-  console.log(props.store)
   return (
     <BrowserRouter>
       <div className="app-wrapper">

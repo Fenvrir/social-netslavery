@@ -1,7 +1,38 @@
-import { Navigate } from "react-router-dom";
+import { Field, reduxForm } from "redux-form";
+import { Textarea } from "../components/FormsControls/FormsControls";
 import DialogItem from "./DialogItem/DialogItem";
 import s from "./Dialogs.module.css";
 import Message from "./Message/Message";
+import { maxLengthCreator, required } from "../../utils/validators/validator";
+
+const maxLength_10 = maxLengthCreator(10);
+
+const AddMessageForm = (props) => {
+  return (
+    <form onSubmit={props.handleSubmit} >
+      <div className={s.textarea__container}>
+        <div className={s.dialogs__textarea}>
+        <Field
+            rows="4"
+            cols="120"
+            name='newMessage'
+            placeholder="Enter your message"
+            validate={[required, maxLength_10]}
+            component={Textarea}
+          />
+        </div>
+        <div className={s.dialogs__btn}>
+          <button  type="submit">
+            Send
+          </button>
+        </div>
+      </div>
+      </form>
+  )
+}
+
+const DialogReduxForm = reduxForm({form: 'dialogAddMessageForm'})(AddMessageForm)
+
 
 const Dialogs = (props) => {
 
@@ -12,19 +43,11 @@ const Dialogs = (props) => {
   const messageElements = props.dialogsPage.messages.map((m) => (
     <Message message={m.message} id={m.id} avatar={m.avatar} />
   ));
-  
-  console.log(props.isAuth)
- 
-  const onSendNewMessage = () => {
-    props.sendMessage();
-  };
 
-  const onMessageChange = (ev) => {
-    let newMessage = ev.target.value;
-    props.updateNewMessageText(newMessage);
-  };
-
-
+  const onSubmit = (formData) => {
+    props.sendMessage(formData.newMessage);
+    console.log(formData.newMessage)
+  }
 
   return (
     <div>
@@ -32,21 +55,8 @@ const Dialogs = (props) => {
         <div className={s.dialogsItems}>{dialogsElements}</div>
         <div className={s.dialogsMessages}>{messageElements}</div>
       </div>
-      <div className={s.textarea__container}>
-        <div className={s.dialogs__textarea}>
-          <textarea
-            rows="4"
-            cols="120"
-            value={props.dialogsPage.newMessageText}
-            onChange={(ev) => onMessageChange(ev)}
-          />
-        </div>
-        <div className={s.dialogs__btn}>
-          <button onClick={onSendNewMessage} type="submit">
-            Send
-          </button>
-        </div>
-      </div>
+    <DialogReduxForm 
+        onSubmit={onSubmit}/>  
     </div>
   );
 };

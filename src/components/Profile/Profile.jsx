@@ -10,7 +10,7 @@ function Profile(props) {
     return <Preloader/>
   }
 
-  return (
+   return (
     <div className={s.content__container}>
       <div>
         <img
@@ -29,7 +29,9 @@ function Profile(props) {
         </div>
         <div className={s.content__description}>
           <ul>
-            <ProfileStatus {...props}/>
+            <ProfileStatus profile={props.profile} 
+            status={props.status} updateUserStatus={props.updateUserStatus}
+            />
             <li>Name: {props.profile.fullName}</li>
             <li>About: {props.profile.aboutMe}</li>
             <li>Description: {props.profile.lookingForAJobDescription}</li>

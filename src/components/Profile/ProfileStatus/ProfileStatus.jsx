@@ -1,24 +1,21 @@
 import React from 'react'
 
-class ProfileStatus extends React.Component {
 
+class ProfileStatus extends React.Component {
    constructor(props){
        super(props);
        this.state = {
            editMode: false,
-           status: 'Some status',
+           status: this.props.status,
        }
    }
 
     toggleEditMode = () => {
-        console.log('this:', this);
         this.setState(
             {
-                editMode: !this.state.editMode
-                
+                editMode: !this.state.editMode  
             }
         )
-        console.log('this:', this);
     }
 
     changeStatus = (ev) => {
@@ -27,15 +24,38 @@ class ProfileStatus extends React.Component {
         })
     }
 
+    closeInput = () => {
+        this.setState(
+            {
+                editMode: !this.state.editMode  
+            }
+        );
+        this.props.updateUserStatus(this.state.status);  
+    }
+
+    updateStatus = (status) => {
+        this.props.updateUserStatus(status);
+    }
+
+    componentDidUpdate(prevProps, prevState) {
+        if(prevProps.status !== this.props.status) {
+            this.setState({
+                status: this.props.status,
+            })
+        }
+    }
+
     render() {
-        console.log(this.props)
         return (
             <div>
                 <div>
-                    {this.state.editMode 
-                    ? <input autoFocus={true} onBlur={this.toggleEditMode} onChange={(ev) => {this.changeStatus(ev)}} /> 
-                    : <span onDoubleClick={this.toggleEditMode.bind(this)}>{this.state.status}</span> }
-                </div>     
+                    {this.state.editMode
+                    ? <input value={this.state.status}
+                        autoFocus={true}
+                        onBlur={this.closeInput}
+                        onChange={(ev) => {this.changeStatus(ev)}} /> 
+                    : <span onDoubleClick={this.toggleEditMode.bind(this)}>{this.props.status}</span> }
+                </div>
             </div>)
     }
 }
