@@ -42,13 +42,15 @@ export const profileAPI = {
 }
 
 export const authAPI = {
-    setUserAuthData () {
+    me () {
         return instance.get(`auth/me`)
             .then(response => response.data)
     },
-    loginUser () {
-        return instance.post('/auth/login')
-            .then(response => response)
+    login (email, password, rememberMe = false) {
+        return instance.post('/auth/login', {email, password, rememberMe})   
+    },
+    logout () {
+        return instance.delete('/auth/login')   
     }
 }
 

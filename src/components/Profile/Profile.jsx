@@ -4,7 +4,6 @@ import ProfileStatus from "./ProfileStatus/ProfileStatus"
 import s from "./Profile.module.css";
 
 function Profile(props) {
- 
 
   if(!props.profile){
     return <Preloader/>

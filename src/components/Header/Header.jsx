@@ -9,6 +9,10 @@ function Header(props) {
 				src="https://pbs.twimg.com/profile_images/925090220067971072/HdaOmOde_400x400.jpg"
 			></img>
 			<div className={s.login__block}>
+				{props.auth.isAuth  
+				&& <NavLink to='/login' onClick={props.logout}>Log out</NavLink>}
+			</div>
+			<div className={s.login__block}>
 				{props.auth.isAuth ? props.auth.login 
 				: <NavLink to='/login'>Login</NavLink>}
 			</div>

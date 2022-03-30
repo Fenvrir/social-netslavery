@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux';
 import { followUser, unFollowUser, setCurrentPage, toggleIsFetching, getUsers } from '../../redux/users-reducer';
+import { getTotalUsersCount, getUsersPage, getPageSize, getCurrentPage, getIsFetching, getFollowingInProgress } from '../../redux/users-selectors';
 import Users from "./Users";
 
 
@@ -53,12 +54,12 @@ class UsersComponent extends React.Component {
 
 let mapStateToProps = (state) => {
   return {
-    usersPage: state.usersPage,
-    pageSize: state.usersPage.pageSize,
-    totalUsersCount: state.usersPage.totalUsersCount,
-    currentPage: state.usersPage.currentPage,
-    isFetching: state.usersPage.isFetching,
-    followingInProgress: state.usersPage.followingInProgress,
+    usersPage: getUsersPage(state),
+    pageSize: getPageSize(state),
+    totalUsersCount: getTotalUsersCount(state),
+    currentPage: getCurrentPage(state),
+    isFetching: getIsFetching(state),
+    followingInProgress:getFollowingInProgress(state),
   }
 }
 
