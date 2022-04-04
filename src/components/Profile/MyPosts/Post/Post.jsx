@@ -1,11 +1,11 @@
-import s from './Post.module.css'
+import s from './Post.module.css';
 
 function Post(props) {
 	return (
 		<div className={s.content__list}>
 			<div className={s.content__user}>
 				<div className={s.avatar}>
-					<img src={props.avatar} alt="Avatar" />
+					<img src={props.avatar } alt="Avatar" />
 				</div>
 				<div className={s.item}>
 					<p>{props.message}</p>

@@ -9,8 +9,9 @@ h2 {
 }
 
 .page__list{
-    display: flex;
-    flex-wrap: wrap;
+    margin: 0 auto;
+    width: 500px;
+    overflow-y: auto;
 }
 
 .current__page{

@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux';
 import { followUser, unFollowUser, setCurrentPage, toggleIsFetching, getUsers } from '../../redux/users-reducer';
-import { getTotalUsersCount, getUsersPage, getPageSize, getCurrentPage, getIsFetching, getFollowingInProgress } from '../../redux/users-selectors';
+import { getTotalUsersCount, getPageSize, getCurrentPage, getIsFetching, getFollowingInProgress, getUsersSelector } from '../../redux/users-selectors';
 import Users from "./Users";
 
 
@@ -30,31 +30,24 @@ class UsersComponent extends React.Component {
 
 
   render() {
-    let pageCount = Math.ceil(this.props.totalUsersCount / this.props.pageSize);
-
-    let pages = [];
-
-    for (let i = 1; i <= pageCount; i++) {
-      pages.push(i);
-    }
-
     return <Users
       usersPage={this.props.usersPage}
       onFollow={this.onFollow}
       onUnfollow={this.onUnfollow}
       onPageChanged={this.onPageChanged}
       currentPage={this.props.currentPage}
-      pages={pages}
       isFetching={this.props.isFetching}
       followingInProgress={this.props.followingInProgress}
       onToggleFollow={this.onToggleFollow}
+      totalUsersCount={this.props.totalUsersCount}
+      pageSize={this.props.pageSize}
     />
   }
 }
 
 let mapStateToProps = (state) => {
   return {
-    usersPage: getUsersPage(state),
+    usersPage: getUsersSelector(state),
     pageSize: getPageSize(state),
     totalUsersCount: getTotalUsersCount(state),
     currentPage: getCurrentPage(state),
@@ -66,7 +59,7 @@ let mapStateToProps = (state) => {
 const UsersContainer = connect(mapStateToProps,
   {
     followUser, unFollowUser, setCurrentPage,
-    toggleIsFetching, getUsers
+    toggleIsFetching, getUsers, getUsersSelector
   })(UsersComponent);
 
 export default UsersContainer;
