@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import s from "./Users.module.css";
-const Paginarot = ({totalUsersCount, pageSize, currentPage, onPageChanged}) => {
+const Paginarot = ({totalUsersCount, pageSize, currentPage, onPageChanged, portionSize = 10}) => {
   let pageCount = Math.ceil(totalUsersCount / pageSize);
 
   let pages = [];
@@ -9,9 +9,17 @@ const Paginarot = ({totalUsersCount, pageSize, currentPage, onPageChanged}) => {
     pages.push(i);
   }
 
+  let portionCount = Math.ceil(pageCount / portionSize);
+  let [portionNumber, setPortionNumber] = useState(1);
+  let leftPortionPageNumber = (portionNumber - 1) * portionSize + 1;
+  let rightPortionPageNumber = portionNumber * portionSize;
+
   return (
     <div>
-      {pages.map((p) => {
+      {portionNumber > 1 &&
+      <button onClick={() => setPortionNumber(portionNumber - 1)}>Prev</button>}
+      {pages.filter(p => p >= leftPortionPageNumber && p <= rightPortionPageNumber)
+      .map((p) => {
         return (
           <span
             className={currentPage === p && s.current__page}
@@ -22,6 +30,7 @@ const Paginarot = ({totalUsersCount, pageSize, currentPage, onPageChanged}) => {
           </span>
         );
       })}
+       { portionCount > portionNumber && <button onClick={() => setPortionNumber(portionNumber + 1)}>Next</button>}
     </div>
   );
 };
