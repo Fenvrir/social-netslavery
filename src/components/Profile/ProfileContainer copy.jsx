@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import Profile from "./Profile";
-import {getUserProfile, getUserStatus, savePhoto, saveProfile, updateUserStatus} from "../../redux/profile-reducer";
+import {getUserProfile, getUserStatus, updateUserStatus} from "../../redux/profile-reducer";
 import { withAuthRedirect } from "../../HOC/withAuthRedirect";
 import { withMatch } from "../../HOC/withMatch";
 import { compose } from "redux";
@@ -9,6 +9,7 @@ import { compose } from "redux";
 class ProfileContainer extends React.Component {
 
   refreshProfile() {
+    debugger;
     let userId = this.props.match 
     ? this.props.match.params.userId 
     : this.props.authorizedUserId;
@@ -24,19 +25,18 @@ class ProfileContainer extends React.Component {
     this.refreshProfile();
   }
 
-  // componentDidUpdate(prevProps, prevState){
-  //     this.refreshProfile();
-  // }
- 
+  componentDidUpdate(prevProps, prevState){
+    // debugger;
+      this.refreshProfile();
+  }
 
   render() {
+    debugger;
     return <Profile {...this.props} 
-            isOwner={this.props.match === null}
+            isOwner={!this.props.match.params.userId}
             profile={this.props.profile}
             status={this.props.status}
             updateUserStatus={this.props.updateUserStatus}
-            savePhoto={this.props.savePhoto}
-            saveProfile={this.props.saveProfile}
            /> 
           }
 }
@@ -49,7 +49,7 @@ let mapStateToProps = (state) => ({
 });
 
 export default compose(
-  connect(mapStateToProps, {getUserProfile, getUserStatus, updateUserStatus, savePhoto, saveProfile}),
+  connect(mapStateToProps, {getUserProfile, getUserStatus, updateUserStatus}),
   withMatch,
   withAuthRedirect,
 )(ProfileContainer);

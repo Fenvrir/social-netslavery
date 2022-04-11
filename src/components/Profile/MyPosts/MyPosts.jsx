@@ -26,7 +26,7 @@ const PostReduxForm = reduxForm({ form: "ProfileAddNewPostForm" })(AddPostForm);
 
 function MyPosts(props) {
   const postsElements = props.posts.map((p) => (
-    <Post message={p.message} likesCount={p.likesCount} avatar={p.avatar} />
+    <Post key={p.id} message={p.message} likesCount={p.likesCount} avatar={p.avatar} />
   ));
 
   function onSubmit (formData) {

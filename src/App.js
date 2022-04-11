@@ -2,7 +2,7 @@ import React, { Suspense } from "react";
 import "./App.css";
 import NavBar from "./components/NavBar/NavBar";
 import News from "./components/News/News";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import {  HashRouter, Route, Routes } from "react-router-dom";
 import ProfileSettings from "./components/ProfileSettings/ProfileSettings";
 import FriendsContainer from "./components/Friends/FriendsContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
@@ -25,7 +25,7 @@ class App extends React.Component {
       return <Preloader />;
     }
     return (
-      <BrowserRouter>
+      <HashRouter>
         <div className="app-wrapper">
           <HeaderContainer />
           <NavBar state={this.props.store} />
@@ -62,7 +62,7 @@ class App extends React.Component {
             </Suspense>
           </div>
         </div>
-      </BrowserRouter>
+      </HashRouter>
     );
   }
 }

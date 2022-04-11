@@ -13,6 +13,4 @@ const FormControl = Element => ({ input, meta, ...props }) => {
 }
 
 export const Textarea = FormControl('textarea');
-
-
 export const Input = FormControl('input');
