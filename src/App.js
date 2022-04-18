@@ -32,13 +32,17 @@ class App extends React.Component {
           <div className="app-wrapper__content">
             <Suspense fallback={<div>Loading...</div>}>
               <Routes>
+              <Route
+                  path="/*"
+                  element={<ProfileContainer  />}
+                />
                 <Route
                   path="profile/*"
-                  element={<ProfileContainer store={this.props.store} />}
+                  element={<ProfileContainer/>}
                 />
                 <Route
                   path="dialogs/*"
-                  element={<DialogsContainer store={this.props.store} />}
+                  element={<DialogsContainer />}
                 />
                 <Route
                   path="music"
@@ -55,9 +59,10 @@ class App extends React.Component {
                 />
                 <Route
                   path="friends"
-                  element={<FriendsContainer store={this.props.store} />}
+                  element={<FriendsContainer  />}
                 />
                 <Route path="users" element={<UsersContainer />} />
+                <Route path="*" element={<div>404 PAGE NOT FOUND</div>} />
               </Routes>
             </Suspense>
           </div>

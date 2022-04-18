@@ -11,7 +11,7 @@ const ProfileForm = (props) => {
       onSubmit={props.handleSubmit}>
       {!props.isOwner && (
         <div style={{ float: "right" }}>
-          <button >Save</button>
+          <button className="btn btn-primary" >Save</button>
         </div>
       )}
        {props.error && (

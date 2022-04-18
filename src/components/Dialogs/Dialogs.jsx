@@ -5,7 +5,7 @@ import s from "./Dialogs.module.css";
 import Message from "./Message/Message";
 import { maxLengthCreator, required } from "../../utils/validators/validator";
 
-const maxLength_10 = maxLengthCreator(10);
+const maxLength_30 = maxLengthCreator(30);
 
 const AddMessageForm = (props) => {
   return (
@@ -17,13 +17,13 @@ const AddMessageForm = (props) => {
             cols="120"
             name='newMessage'
             placeholder="Enter your message"
-            validate={[required, maxLength_10]}
+            validate={[required, maxLength_30]}
             component={Textarea}
           />
         </div>
         <div className={s.dialogs__btn}>
-          <button  type="submit">
-            Send
+          <button className="btn btn-secondary"  type="submit">
+            Send message
           </button>
         </div>
       </div>

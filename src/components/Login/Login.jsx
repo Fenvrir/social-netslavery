@@ -5,21 +5,23 @@ import style from "./../components/FormsControls/FormsControl.module.css";
 import { connect } from "react-redux";
 import { login, getUserAuthData } from "../../redux/auth-reducer";
 import { Navigate } from "react-router-dom";
+import './Login.module.css';
 
 const LoginForm = ({handleSubmit, error, captchaUrl}) => {
-  console.log(captchaUrl)
   return (
     <form onSubmit={handleSubmit}>
-      <div>
+      <div className="w-25 p-1">
         <Field
+          className="form-control "
           placeholder="Login"
           name="name"
           validate={[required]}
           component={Input}
         />
       </div>
-      <div>
+      <div className="w-25 p-1">
         <Field
+         className="form-control"
           placeholder="Password"
           name="password"
           type={"password"}
@@ -28,8 +30,12 @@ const LoginForm = ({handleSubmit, error, captchaUrl}) => {
         />
       </div>
       <div>
-        <Field name="rememberMe" component="input" 
+        <label>
+        <Field 
+        className="checkbox-inline m-2"
+        name="rememberMe" component="input" 
 			   type={"checkbox"} /> Remember me
+        </label>
       </div>
       {captchaUrl && <img src={captchaUrl}/>}
       {captchaUrl && <Field
@@ -41,7 +47,9 @@ const LoginForm = ({handleSubmit, error, captchaUrl}) => {
       {error && (
         <div className={style.form_summary_error}>{error}</div>
       )}
-      <button type="submit">Submit</button>
+      <button 
+      className="btn btn-success m-2"  
+      type="submit">Submit</button>
     </form>
   );
 };
@@ -59,7 +67,6 @@ const Login = (props) => {
 
   return (
     <div>
-      <h1>Login</h1>
       <LoginReduxForm onSubmit={onSubmit} captchaUrl={props.captchaUrl}/>
     </div>
   );

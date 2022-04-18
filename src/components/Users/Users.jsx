@@ -3,7 +3,7 @@ import User from "./User/User";
 import s from "./Users.module.css";
 import userPhoto from "../acces/img/userPng.png";
 import Preloader from "./Preloader";
-import Paginarot from "./Paginator";
+import Paginator from "./Paginator";
 
 const Users = (props) => {
   const users = props.usersPage.users.map((u) => {
@@ -24,17 +24,18 @@ const Users = (props) => {
     );
   });
 
-  return (
-    <div>
-      <h2>Users</h2>
-      {props.isFetching && <Preloader />}
+  if( props.isFetching ) return <Preloader className={s.preloader}/>
+
+  return (<>
+   <div className={s.users_container} >
       <div className={s.page__list}>
-        <Paginarot currentPage={props.currentPage} onPageChanged={props.onPageChanged} 
+        <Paginator currentPage={props.currentPage} onPageChanged={props.onPageChanged} 
                    totalUsersCount={props.totalUsersCount} pageSize={props.pageSize} />
       </div>
       {users}
       <div className={s.button__show}></div>
     </div>
+  </>
   );
 };
 

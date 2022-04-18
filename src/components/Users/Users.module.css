@@ -1,16 +1,9 @@
-h2 {
-    margin: 20px 0 0 20px;
+.users_container{
+    display: flex;
+    flex-direction: column;
 }
-.button__show{
-    text-align: center;
-}
-.button__show button {
-    font-size: 30px;
-}
-
 .page__list{
-    margin: 0 auto;
-    width: 550px;
+    margin: 10px auto;
     overflow-y: auto;
 }
 
@@ -21,5 +14,10 @@ h2 {
 .page__list span{
     font-size: 20px;
     margin: 5px;
+    padding: 5px;
     cursor: pointer;
 }
+.page__list span:hover {  
+    font-weight: bold;
+}
+

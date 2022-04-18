@@ -5,14 +5,23 @@
 
 .dialogsItems,
 .dialogsMessages {
-	padding: 20px;
+	padding: 20px;	
 }
 
+.dialogsItems {
+	border-right: 3px solid #fff ;
+}
 .dialogsItems .dialog {
 	font-size: 20px;
 	margin-bottom: 10px;
 }
-
+.message__owner,
+.message__friend,
+.dialogsItems .dialog {
+	background-color: #f7f6f4cc;
+	border: 3px solid #fff;
+	border-radius: 10px;
+}
 .dialogsItems .dialog_active {
 	color: rgb(219, 12, 12);
 }
@@ -24,6 +33,7 @@
 
 .dialogsMessages .message {
 	margin-bottom: 10px;
+	
 }
 
 .dialog__avatar img,
@@ -41,17 +51,17 @@
 .message__friend {
 	display: flex;
 	align-items: center;
+	font-size: 18px;
 }
-
 
 .message__friend {
 	justify-content: right;
-	margin: 0 20px 10px 0;
+	margin: 0 0px 10px 0;
 }
 
 .message__owner {
 	text-align: left;
-	margin: 0 0 10px 20px;
+	margin: 0 0 10px 0px;
 }
 
 .message {
@@ -69,7 +79,7 @@
 }
 
 .dialogs__btn {
-	margin: 5px 20px 10px 0;
+	margin: 10px;
 	text-align: right;
 }
 

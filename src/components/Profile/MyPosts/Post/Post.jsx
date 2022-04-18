@@ -12,9 +12,9 @@ function Post(props) {
 				</div>
 			</div>
 			<div className={s.content_feedback}>
-				<span><button>Like</button></span>
+				<span><button className='btn btn-success'>Like</button></span>
 				<span>{props.likesCount}</span>
-				<span><button>Dislike</button></span>
+				<span><button className='btn btn-danger'>Dislike</button></span>
 			</div>
 		</div>
 	)

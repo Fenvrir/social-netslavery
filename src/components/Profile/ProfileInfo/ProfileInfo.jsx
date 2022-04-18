@@ -1,9 +1,11 @@
 import ProfileStatus from "./../ProfileStatus/ProfileStatus";
 import s from "./../Profile.module.css";
+import {Button} from 'react-bootstrap';
 import { useState } from "react";
 import ProfileDataForm from "./ProfileDataForm";
 let defaultAvatar =
   "https://www.kindpng.com/picc/m/22-223941_transparent-avatar-png-male-avatar-icon-transparent-png.png";
+
 
 function ProfileInfo(props) {
   const [editMode, setEditMode] = useState(false);
@@ -60,7 +62,7 @@ let contacts = Object.filter(props.profile.contacts, contact => contact !== null
 
   return (<div className={s.content__description}>
             {!props.isOwner && <div style={{float: "right"}}> 
-              <button onClick={props.goToEditMode}>Edit</button> 
+              <Button className={'btn btn-primary'} onClick={props.goToEditMode}>Edit</Button> 
             </div>}
             <ul>
             <ProfileStatus

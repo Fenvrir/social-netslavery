@@ -5,13 +5,15 @@ import s from './User.module.css'
 const User = (props) => {
 
     let btn = props.followed
-        ? <button
+        ? <button 
+            className="btn btn-secondary"
             onClick={() => {
                 props.onUnfollowUser(props.id)
             }} id={props.id}
             disabled={props.followingInProgress.some(id => id === props.id)}
             >Unfollow</button>
         : <button
+            className="btn btn-secondary"
             disabled={props.followingInProgress.some(id => id === props.id)}
             onClick={() => {
                 props.onFollowUser(props.id)      

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import s from "./Users.module.css";
-const Paginarot = ({totalUsersCount, pageSize, currentPage, onPageChanged, portionSize = 10}) => {
+const Paginator = ({totalUsersCount, pageSize, currentPage, onPageChanged, portionSize = 10}) => {
   let pageCount = Math.ceil(totalUsersCount / pageSize);
 
   let pages = [];
@@ -15,9 +15,9 @@ const Paginarot = ({totalUsersCount, pageSize, currentPage, onPageChanged, porti
   let rightPortionPageNumber = portionNumber * portionSize;
 
   return (
-    <div>
+    <div className={s.users_paginator}>
       {portionNumber > 1 &&
-      <button onClick={() => setPortionNumber(portionNumber - 1)}>Prev</button>}
+      <button className="btn btn-primary" onClick={() => setPortionNumber(portionNumber - 1)}>Prev</button>}
       {pages.filter(p => p >= leftPortionPageNumber && p <= rightPortionPageNumber)
       .map((p) => {
         return (
@@ -30,9 +30,9 @@ const Paginarot = ({totalUsersCount, pageSize, currentPage, onPageChanged, porti
           </span>
         );
       })}
-       { portionCount > portionNumber && <button onClick={() => setPortionNumber(portionNumber + 1)}>Next</button>}
+       { portionCount > portionNumber && <button className="btn btn-primary" onClick={() => setPortionNumber(portionNumber + 1)}>Next</button>}
     </div>
   );
 };
 
-export default Paginarot;
+export default Paginator;

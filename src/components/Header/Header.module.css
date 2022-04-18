@@ -1,13 +1,16 @@
 .header {
 	grid-area: h;
-	background-color: rgba(0, 255, 255, 0.253);
-}
-.header img {
-	width: 100px;
+	background-color: #f7ec54 ;
+	border-radius: 5px;
+	padding: 8px;
 }
 
 .login__block {
-	font-size: 20px;
+	font-size: 26px;
 	float: right;
 	margin: 10px 10px 0 0;
+}
+.login__block a:hover {
+	color: #46d0ae;
+	text-shadow: 1px 1px black;
 }
