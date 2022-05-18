@@ -1,0 +1,8 @@
+#Avatar_input {
+  display: none;
+}
+.avatar_label {
+  cursor: pointer;
+  width: 250px;
+  height: 250px;
+}

@@ -1,23 +1,22 @@
-.users_container{
-    display: flex;
-    flex-direction: column;
+.users_container {
+  display: flex;
+  flex-direction: column;
 }
-.page__list{
-    margin: 10px auto;
-    overflow-y: auto;
-}
-
-.current__page{
-    font-weight: bold;
+.page__list {
+  margin: 10px auto;
+  overflow-y: auto;
 }
 
-.page__list span{
-    font-size: 20px;
-    margin: 5px;
-    padding: 5px;
-    cursor: pointer;
-}
-.page__list span:hover {  
-    font-weight: bold;
+.current__page {
+  font-weight: bold;
 }
 
+.page__list span {
+  font-size: 20px;
+  margin: 5px;
+  padding: 5px;
+  cursor: pointer;
+}
+.page__list div > span:hover {
+  background-color: #e7e9eb;
+}

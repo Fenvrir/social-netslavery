@@ -10,7 +10,9 @@ import Login from "./components/Login/Login";
 import MusicContainer from "./components/Music/MusicContainer";
 import { connect } from "react-redux";
 import { initializeApp } from "./redux/app-reducer";
-import Preloader from "./components/Users/Preloader";
+import Preloader from "./components/acces/preloader/Preloader";
+
+
 
 const ProfileContainer = React.lazy(() =>import("./components/Profile/ProfileContainer"));
 const DialogsContainer = React.lazy(() =>import("./components/Dialogs/DialogsContainer"));

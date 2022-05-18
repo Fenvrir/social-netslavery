@@ -1,43 +1,38 @@
 .content__user {
-	display: flex;
-	margin-bottom: 20px;
-}
-
-.content__avatar {
-	margin-left: 10px;
+  display: flex;
+  margin-bottom: 20px;
 }
 
 .content__description {
-	margin-right: 20px;
-	width: 100%;
+  margin-right: 20px;
+  width: 100%;
 }
 
 .content__description div {
-	font-size: 20px;
+  font-size: 20px;
 }
 
 li {
-	list-style-type: none;
-	font-size: 20px;
+  list-style-type: none;
+  font-size: 20px;
 }
 
 .content__posts {
-	display: flex;
-	flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .content__list {
-	padding-bottom: 10px;
-	
+  padding-bottom: 10px;
 }
 .item {
-	margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 .item_gold {
-	color: rgb(231, 153, 6);
+  color: rgb(231, 153, 6);
 }
 
 .contacts {
-	float: right;
+  float: right;
 }

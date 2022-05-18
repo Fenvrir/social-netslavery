@@ -1,88 +1,87 @@
 .dialogs {
-	display: grid;
-	grid-template-columns: 2fr 10fr;
+  display: grid;
+  grid-template-columns: 2fr 10fr;
 }
 
 .dialogsItems,
 .dialogsMessages {
-	padding: 20px;	
+  padding: 20px;
 }
 
 .dialogsItems {
-	border-right: 3px solid #fff ;
+  border-right: 3px solid #fff;
 }
 .dialogsItems .dialog {
-	font-size: 20px;
-	margin-bottom: 10px;
+  font-size: 20px;
+  margin-bottom: 10px;
 }
 .message__owner,
 .message__friend,
 .dialogsItems .dialog {
-	background-color: #f7f6f4cc;
-	border: 3px solid #fff;
-	border-radius: 10px;
+  background-color: #f7f6f4cc;
+  border: 3px solid #fff;
+  border-radius: 10px;
 }
 .dialogsItems .dialog_active {
-	color: rgb(219, 12, 12);
+  color: rgb(219, 12, 12);
 }
 
 .dialog {
-	display: flex;
-	align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .dialogsMessages .message {
-	margin-bottom: 10px;
-	
+  margin-bottom: 10px;
 }
 
 .dialog__avatar img,
 .message__owner img,
 .message__friend img {
-	width: 50px;
-	border-radius: 50%;
+  width: 50px;
+  border-radius: 50%;
 }
 
 .dialog__name {
-	margin-left: 15px;
+  margin-left: 15px;
 }
 
 .message__owner,
 .message__friend {
-	display: flex;
-	align-items: center;
-	font-size: 18px;
+  display: flex;
+  align-items: center;
+  font-size: 18px;
 }
 
 .message__friend {
-	justify-content: right;
-	margin: 0 0px 10px 0;
+  justify-content: right;
+  margin: 0 0px 10px 0;
 }
 
 .message__owner {
-	text-align: left;
-	margin: 0 0 10px 0px;
+  text-align: left;
+  margin: 0 0 10px 0px;
 }
 
 .message {
-	margin: 0 10px 10px 10px;
+  margin: 0 10px 10px 10px;
 }
 
 .textarea__container {
-	display: flex;
-	flex-direction: column;
-	justify-content: end;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 }
 
 .dialogs__textarea {
-	margin: 0 10px 0 auto;
+  margin: 0 10px 0 auto;
 }
 
 .dialogs__btn {
-	margin: 10px;
-	text-align: right;
+  margin: 10px;
+  text-align: right;
 }
 
 .dialogs__btn button {
-	font-size: 25px;
+  font-size: 25px;
 }

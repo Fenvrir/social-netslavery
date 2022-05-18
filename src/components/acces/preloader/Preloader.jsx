@@ -1,4 +1,4 @@
-import preloader from '../acces/preloader/preloader.gif';
+import preloader from './preloader.gif';
 
 const Preloader = () => {
  return<>

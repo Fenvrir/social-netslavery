@@ -15,6 +15,12 @@ export const usersAPI = {
     }
 }
 
+export const friendsAPI = {
+    getFriends() {
+        return instance.get(`users?friend=true`).then(resp => resp.data.items)
+    }
+}
+
 export const subscribeAPI = {
     followUser: async (userId) => {
         const response = await instance.post(`follow/${userId}`);
@@ -27,46 +33,45 @@ export const subscribeAPI = {
 }
 
 export const profileAPI = {
-   
-    getUserProfile (userId) {
-        return instance.get(`profile/`+ userId)
+    getUserProfile(userId) {
+        return instance.get(`profile/` + userId)
             .then(response => response.data)
     },
-    getUserStatus (userId) {
+    getUserStatus(userId) {
         return instance.get(`profile/status/` + userId)
             .then(response => response);
     },
-    updateStatus (status) {
-        return instance.put(`profile/status`, {status});
+    updateStatus(status) {
+        return instance.put(`profile/status`, { status });
     },
-    savePhoto (photoFile) {
+    savePhoto(photoFile) {
         const formData = new FormData();
         formData.append("image", photoFile);
 
         return instance.put(`profile/photo`, formData)
     },
-    saveProfile (profile) {
+    saveProfile(profile) {
         return instance.put(`profile`, profile);
     }
 }
 
 export const authAPI = {
-    me () {
+    me() {
         return instance.get(`auth/me`)
             .then(response => response.data)
     },
-    login (email, password, rememberMe = false, captcha = null) {
-        return instance.post('/auth/login', {email, password, rememberMe, captcha})   
+    login(email, password, rememberMe = false, captcha = null) {
+        return instance.post('/auth/login', { email, password, rememberMe, captcha })
     },
-    logout () {
-        return instance.delete('/auth/login')   
+    logout() {
+        return instance.delete('/auth/login')
     }
 }
 
 export const securityAPI = {
-    getCaptchaUrl () {
+    getCaptchaUrl() {
         return instance.get(`security/get-captcha-url`)
     },
-   
+
 }
 

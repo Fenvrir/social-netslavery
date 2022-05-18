@@ -1,16 +1,21 @@
 .header {
-	grid-area: h;
-	background-color: #f7ec54 ;
-	border-radius: 5px;
-	padding: 8px;
+  grid-area: h;
+  background-color: #282a35;
+  border-radius: 5px;
+  padding: 8px;
+  color: #fff;
+}
+.header a {
+  color: #fff;
 }
 
 .login__block {
-	font-size: 26px;
-	float: right;
-	margin: 10px 10px 0 0;
+  font-size: 26px;
+  float: right;
+  margin: 10px 10px 0 0;
+  color: white;
 }
 .login__block a:hover {
-	color: #46d0ae;
-	text-shadow: 1px 1px black;
+  color: #fff;
+  text-shadow: 1px 1px #fff;
 }

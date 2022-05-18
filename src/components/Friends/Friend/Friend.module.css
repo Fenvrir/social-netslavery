@@ -1,14 +1,15 @@
-.friend{
-	display: flex;
-	flex-direction: column;
-
+.friend {
+  display: flex;
+  flex-direction: column;
 }
 
-.friend__avatar img{
-	width: 100px;
+.friend__avatar img {
+  width: 100px;
+  border-radius: 50%;
 }
 
-.friend__name{
-text-align: center;
-margin: 7px;
+.friend__name {
+  font-weight: bold;
+  text-align: center;
+  margin: 7px;
 }

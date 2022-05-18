@@ -5,7 +5,7 @@ import friendsReducer from './friends-reducer';
 import profileReducer from './profile-reducer';
 import usersReducer from './users-reducer';
 import thunkMiddleware from 'redux-thunk'
-import {reducer as formReducer} from 'redux-form';
+import { reducer as formReducer } from 'redux-form';
 import appReducer from './app-reducer';
 
 let reducers = combineReducers({

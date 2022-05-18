@@ -9,33 +9,33 @@ const maxLength_30 = maxLengthCreator(30);
 
 const AddMessageForm = (props) => {
   return (
-    <form onSubmit={props.handleSubmit} >
+    <form onSubmit={props.handleSubmit}>
       <div className={s.textarea__container}>
         <div className={s.dialogs__textarea}>
-        <Field
+          <Field
             rows="4"
             cols="120"
-            name='newMessage'
+            name="newMessage"
             placeholder="Enter your message"
             validate={[required, maxLength_30]}
             component={Textarea}
           />
         </div>
         <div className={s.dialogs__btn}>
-          <button className="btn btn-secondary"  type="submit">
+          <button className="btn btn-secondary" type="submit">
             Send message
           </button>
         </div>
       </div>
-      </form>
-  )
-}
+    </form>
+  );
+};
 
-const DialogReduxForm = reduxForm({form: 'dialogAddMessageForm'})(AddMessageForm)
-
+const DialogReduxForm = reduxForm({ form: "dialogAddMessageForm" })(
+  AddMessageForm
+);
 
 const Dialogs = (props) => {
-
   const dialogsElements = props.dialogsPage.dialogs.map((d) => (
     <DialogItem id={d.id} name={d.name} active={d.active} avatar={d.avatar} />
   ));
@@ -46,8 +46,8 @@ const Dialogs = (props) => {
 
   const onSubmit = (formData) => {
     props.sendMessage(formData.newMessage);
-    console.log(formData.newMessage)
-  }
+    console.log(formData.newMessage);
+  };
 
   return (
     <div>
@@ -55,8 +55,7 @@ const Dialogs = (props) => {
         <div className={s.dialogsItems}>{dialogsElements}</div>
         <div className={s.dialogsMessages}>{messageElements}</div>
       </div>
-    <DialogReduxForm 
-        onSubmit={onSubmit}/>  
+      <DialogReduxForm onSubmit={onSubmit} />
     </div>
   );
 };

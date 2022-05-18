@@ -1,21 +1,30 @@
-const ADD_FRIEND = 'ADD-FRIEND';
+import { friendsAPI } from "../dal/api";
+
+const SET_FRIENDS = 'SET_FRIENDS';
 
 let initialState = {
-    friends:
-        [{ id: 1, name: 'Anton', avatar: "https://www.kindpng.com/picc/m/22-223941_transparent-avatar-png-male-avatar-icon-transparent-png.png" },
-        { id: 2, name: 'Dmitri', avatar: "https://www.kindpng.com/picc/m/22-223941_transparent-avatar-png-male-avatar-icon-transparent-png.png" },
-        { id: 3, name: 'Alex', avatar: "https://www.kindpng.com/picc/m/22-223941_transparent-avatar-png-male-avatar-icon-transparent-png.png" },
-        { id: 4, name: 'Mikhail', avatar: "https://www.kindpng.com/picc/m/22-223941_transparent-avatar-png-male-avatar-icon-transparent-png.png" },]
+    friends: []
 };
 
 const friendsReducer = (state = initialState, action) => {
     switch (action.type) {
-        case ADD_FRIEND:
-            let newFriend = { id: 2, name: 'Dmitri', avatar: "https://www.kindpng.com/picc/m/22-223941_transparent-avatar-png-male-avatar-icon-transparent-png.png" };
-            return { ...state, friends: [...state.friends, newFriend] };
+        case SET_FRIENDS: {
+            return { ...state, friends: [...action.friendsList] };
+        }
+
         default: return state;
     }
 };
 
-export const addFriend = () => ({ type: ADD_FRIEND });
+export const setFriends = (friendsList) => ({ type: SET_FRIENDS, friendsList })
+
+
+export const getFriends = () => {
+    return async (dispatch) => {
+        const resp = await friendsAPI.getFriends();
+        dispatch(setFriends(resp));
+    }
+}
+
+
 export default friendsReducer;
