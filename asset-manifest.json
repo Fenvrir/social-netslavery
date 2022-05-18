@@ -1,29 +1,29 @@
 {
   "files": {
-    "main.css": "/social-netslavery/static/css/main.0b85d960.css",
-    "main.js": "/social-netslavery/static/js/main.aca27770.js",
-    "static/css/654.91d419f1.chunk.css": "/social-netslavery/static/css/654.91d419f1.chunk.css",
-    "static/js/654.08de28f0.chunk.js": "/social-netslavery/static/js/654.08de28f0.chunk.js",
-    "static/css/672.a87ec344.chunk.css": "/social-netslavery/static/css/672.a87ec344.chunk.css",
+    "main.css": "/social-netslavery/static/css/main.3e018d67.css",
+    "main.js": "/social-netslavery/static/js/main.6356e8b2.js",
+    "static/css/236.cffbd7e9.chunk.css": "/social-netslavery/static/css/236.cffbd7e9.chunk.css",
+    "static/js/236.f70f67ac.chunk.js": "/social-netslavery/static/js/236.f70f67ac.chunk.js",
+    "static/css/672.c35550d8.chunk.css": "/social-netslavery/static/css/672.c35550d8.chunk.css",
     "static/js/672.40d3d946.chunk.js": "/social-netslavery/static/js/672.40d3d946.chunk.js",
-    "static/css/371.deb637f0.chunk.css": "/social-netslavery/static/css/371.deb637f0.chunk.css",
-    "static/js/371.ecd0f1c8.chunk.js": "/social-netslavery/static/js/371.ecd0f1c8.chunk.js",
+    "static/css/371.0b5277bc.chunk.css": "/social-netslavery/static/css/371.0b5277bc.chunk.css",
+    "static/js/371.d8fc9a53.chunk.js": "/social-netslavery/static/js/371.d8fc9a53.chunk.js",
     "static/js/787.9c4083a9.chunk.js": "/social-netslavery/static/js/787.9c4083a9.chunk.js",
     "static/media/userPng.png": "/social-netslavery/static/media/userPng.e8dbe401d6f5058e3f2b.png",
     "static/media/preloader.gif": "/social-netslavery/static/media/preloader.d3fbaf2b81fd92c49692.gif",
     "index.html": "/social-netslavery/index.html",
-    "main.0b85d960.css.map": "/social-netslavery/static/css/main.0b85d960.css.map",
-    "main.aca27770.js.map": "/social-netslavery/static/js/main.aca27770.js.map",
-    "654.91d419f1.chunk.css.map": "/social-netslavery/static/css/654.91d419f1.chunk.css.map",
-    "654.08de28f0.chunk.js.map": "/social-netslavery/static/js/654.08de28f0.chunk.js.map",
-    "672.a87ec344.chunk.css.map": "/social-netslavery/static/css/672.a87ec344.chunk.css.map",
+    "main.3e018d67.css.map": "/social-netslavery/static/css/main.3e018d67.css.map",
+    "main.6356e8b2.js.map": "/social-netslavery/static/js/main.6356e8b2.js.map",
+    "236.cffbd7e9.chunk.css.map": "/social-netslavery/static/css/236.cffbd7e9.chunk.css.map",
+    "236.f70f67ac.chunk.js.map": "/social-netslavery/static/js/236.f70f67ac.chunk.js.map",
+    "672.c35550d8.chunk.css.map": "/social-netslavery/static/css/672.c35550d8.chunk.css.map",
     "672.40d3d946.chunk.js.map": "/social-netslavery/static/js/672.40d3d946.chunk.js.map",
-    "371.deb637f0.chunk.css.map": "/social-netslavery/static/css/371.deb637f0.chunk.css.map",
-    "371.ecd0f1c8.chunk.js.map": "/social-netslavery/static/js/371.ecd0f1c8.chunk.js.map",
+    "371.0b5277bc.chunk.css.map": "/social-netslavery/static/css/371.0b5277bc.chunk.css.map",
+    "371.d8fc9a53.chunk.js.map": "/social-netslavery/static/js/371.d8fc9a53.chunk.js.map",
     "787.9c4083a9.chunk.js.map": "/social-netslavery/static/js/787.9c4083a9.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.0b85d960.css",
-    "static/js/main.aca27770.js"
+    "static/css/main.3e018d67.css",
+    "static/js/main.6356e8b2.js"
   ]
 }
